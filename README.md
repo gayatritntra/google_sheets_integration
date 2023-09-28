@@ -1,24 +1,47 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Explanation of how to use the google_sheet_service.rb
+  
+  - First Create the Service object
 
-Things you may want to cover:
+  ````yaml
+    google_sheets_service = GoogleSheetsService.new('config/my-google-sheets-credentials.json')
+  `````
+  #### Add headers to google sheet
+  
+  - headers = ["First Name", "Last Name", "Email"]
 
-* Ruby version
+  ``````yaml
+    google_sheets_service.add_headers_to_spreadsheet(headers)
+  ``````
+  #### Add Data to google sheet
 
-* System dependencies
+  - data = ["Mona", "Solanki", "mona.solanki@tntra.io"]
 
-* Configuration
+  ``````yaml
+    google_sheets_service.send_data(data)
+  ``````
 
-* Database creation
+  #### Update data of google sheet
 
-* Database initialization
+  - old_dat = ["Mona", "Solanki", "mona.solanki@tntra.io"]
 
-* How to run the test suite
+  - data_to_update = ["Mona", "Solanki", "mona@tntra.io"]
 
-* Services (job queues, cache servers, search engines, etc.)
+  ``````yaml
+  google_sheets_service.update_data(data_to_update, old_data)
+  ``````
 
-* Deployment instructions
+  #### Delete data of google sheet
 
-* ...
+  - data_to_delete = ["Mona", "Solanki", "mona@tntra.io"]
+
+  ``````yaml
+  google_sheets_service.delete_data(data_to_delete)
+  ``````
+
+ 
+
+
+
+
+
